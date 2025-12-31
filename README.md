@@ -128,35 +128,54 @@ http://localhost:5173
 
 ### ⚠️ Current Limitations
 
+
 Notes are stored in server memory (not persistent)
+
 Notes reset when the server restarts
+
 Only one shared document
+
 Plain text editor (no rich formatting)
+
 No user authentication
 
 ### 🔮 Future Enhancements
 
+
 Database-based persistence (MongoDB / SQLite)
+
 Support for multiple documents
+
 User authentication and identity
+
 Cursor and presence indicators
+
 Rich text editor or code editor (Monaco)
+
 Version history and undo/redo
+
 Export notes as PDF or text files
 
 ### 📚 Learning Outcomes
 
 Understanding WebSocket-based real-time systems
+
 Implementing multi-user collaboration
+
 Client–server communication
+
 React component structuring
+
 Backend event handling with Node.js
+
 Version control using Git and GitHub
 
 ### 🏁 Internship Details
 
 Internship Provider: CODTECH IT SOLUTIONS
+
 Task: Task-02 – Collaborative Note-Sharing Application
+
 Domain: Web Development / Real-Time Applications
 
 ### 📜 License
