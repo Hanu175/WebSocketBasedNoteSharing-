@@ -7,149 +7,175 @@ This project implements a WebSocket-based real-time collaborative note-sharing a
 This project is a real-time collaborative note-sharing web application built using WebSockets. It allows multiple users to view and edit the same notes simultaneously, similar in core behavior to tools like Google Docs.
 The project demonstrates the use of real-time client–server communication, multi-user synchronization, and modern frontend–backend separation using React and Node.js.
 
-**Problem Statement**
+# 📌 Task-02: WebSocket-Based Collaborative Note-Sharing Application
 
-Most basic note-taking applications are single-user and do not support live collaboration. When multiple users need to work together, they often face issues such as:
-1. Delayed updates
-2. Manual sharing of files
-3. Version conflicts
-4. Lack of synchronization
-The goal of this project is to solve these problems by providing a real-time collaborative environment where users can share and edit notes live.
-**
-Project Objectives**
+A real-time collaborative note-taking web application developed as part of **Task-02 for the CODTECH Internship Program**.  
+This project allows multiple users to write and edit notes simultaneously with **instant synchronization**, similar to Google Docs, using **WebSocket-based real-time communication**.
 
-The main objectives of this project are:
-To develop a collaborative note-taking tool
-To implement real-time updates using WebSockets
-To support multiple users editing the same document
-To maintain a shared document state
-To demonstrate understanding of real-time web architectures
+---
 
-**Technology Stack
+## 📖 Project Overview
 
-Frontend**
+This project demonstrates the implementation of a **real-time collaborative system** where multiple users can work on the same notes document at the same time. Any changes made by one user are immediately reflected across all connected users without requiring a page refresh.
 
-React (Vite)
-JavaScript
-HTML
-CSS
+The application follows a **client–server architecture**, with a React-based frontend and a Node.js WebSocket backend, ensuring scalability and modularity.
 
-**Backend**
+---
 
-Node.js
-WebSocket (ws library)
-Communication
-WebSocket protocol (ws://)
+## 🎯 Objectives
 
-**6.System Architecture
+- Build a collaborative note-taking tool
+- Enable real-time multi-user editing
+- Use WebSockets for live data synchronization
+- Maintain a shared document state across users
+- Understand real-time web application architecture
 
-High Level Architecture**
+---
 
-_User Browser 1 ─┐
-                ├── WebSocket ──► Node.js Server
-User Browser 2 ─┘_
+## 🛠️ Technology Stack
 
-**7.What the Project Currently Has (Features)**
+### Frontend
+- React (Vite)
+- JavaScript
+- HTML5
+- CSS3
 
-**Real-Time Collaboration**
+### Backend
+- Node.js
+- WebSocket (`ws` library)
 
-Multiple users can open the application at the same time
-All users see the same shared notes
-Changes are synchronized instantly
+---
 
-**WebSocket Communication**
+## 🧱 System Architecture
 
-Persistent bi-directional connection
-No page refresh required
-Low-latency updates
+- Clients communicate with the server using persistent WebSocket connections.
+- The server manages a shared document state and broadcasts updates to all connected users.
 
-**Shared Document State**
+---
 
-Notes are stored in server memory
-Every connected client receives updates
+## 📂 Project Structure
 
-**Simple and Clean UI**
+collab-editor/
+│
+├── client/
+│ └── collab-editor-client/
+│ ├── index.html
+│ ├── package.json
+│ └── src/
+│ ├── main.jsx # React entry point
+│ ├── App.jsx # Main application component
+│ ├── Editor.jsx # Collaborative text editor
+│ └── socket.js # WebSocket client logic
+│
+├── server/
+│ ├── index.js # WebSocket server
+│ ├── documentStore.js # Shared in-memory document
+│ └── package.json
+│
+├── .gitignore
+└── README.md
 
-Text editor using a textarea
-Easy to use and understand
-Beginner-friendly design
 
-**8.How the Project Works (Step-by-Step)**
+---
 
-1.The server starts and listens on a WebSocket port.
-2.A user opens the application in a browser.
-3.The client connects to the server using WebSocket.
-4.The user joins a shared document.
-5.When the user types:
-6.The change is sent to the server.
-7.The server updates the shared document.
-8.The server broadcasts the update to all users.
-9.All connected users instantly see the updated notes.
+## ✨ Features
 
-**9.Current Limitations**
+- ✅ Real-time collaborative editing
+- ✅ Multi-user support
+- ✅ WebSocket-based communication
+- ✅ Instant synchronization
+- ✅ Clean and beginner-friendly UI
+- ✅ Modular frontend and backend structure
 
-At the current stage, the project has the following limitations:
-Notes are not permanently saved
-Data is lost when the server restarts
-No user authentication
+---
+
+## ⚙️ How It Works
+
+1. The WebSocket server starts and listens for client connections.
+2. Users open the web application in their browser.
+3. Each client establishes a WebSocket connection to the server.
+4. Users join a shared notes document.
+5. When a user types:
+   - The update is sent to the server.
+   - The server updates the shared document.
+   - The update is broadcast to all connected clients.
+6. All users see the updated notes instantly.
+
+---
+
+## 🚀 How to Run the Project Locally
+
+### Step 1: Clone the Repository
+
+git clone https://github.com/Hanu175/WebSocketBasedNoteSharing-.git
+
+### Step 2: Start the Backend
+
+cd WebSocketBasedNoteSharing-/server
+npm install
+npm start
+
+### Step 3: Start the Frontend
+
+cd ../client/collab-editor-client
+npm install
+npm run dev
+
+### Step 4: Open the Application
+
+http://localhost:5173
+
+⚠️ Current Limitations
+
+Notes are stored in server memory (not persistent)
+
+Notes reset when the server restarts
+
 Only one shared document
-Plain text only (no rich formatting)
-No version history or undo support
-These limitations are intentional to keep the project simple and focused on real-time collaboration.
 
-**10.Future Enhancements (Project Betterment)**
+Plain text editor (no rich formatting)
 
-The project can be improved and extended in many ways:
+No user authentication
 
-**10.1 Data Persistence**
+🔮 Future Enhancements
 
-Save notes to:
-    1.File system
-    2.Database (MongoDB, SQLite, PostgreSQL)
-Allow notes to persist after server restarts
+Database-based persistence (MongoDB / SQLite)
 
-**10.2 Multiple Documents**
+Support for multiple documents
 
-Create multiple note documents
-Allow users to select or create new notes
-Document-based collaboration
+User authentication and identity
 
-**10.3 User Authentication**
+Cursor and presence indicators
 
-Login / signup system
-Identify users uniquely
-Show which user is editing
+Rich text editor or code editor (Monaco)
 
-**10.4 Cursor & Presence Tracking**
+Version history and undo/redo
 
-Show live cursors of other users
-Display active users list
+Export notes as PDF or text files
 
-**10.5 Rich Text / Code Editor**
+📚 Learning Outcomes
 
-Replace textarea with:
-Rich text editor
-Code editor (Monaco Editor)
-Enable formatting and syntax highlighting
+Understanding WebSocket-based real-time systems
 
-**10.6 Version History**
+Implementing multi-user collaboration
 
-Track changes over time
-Allow undo / rollback
-Show edit history
+Client–server communication
 
-**Learning Outcomes**
+React component structuring
 
-Through this project, the following concepts were learned:
-WebSocket communication
-Real-time data synchronization
-Client–server architecture
-React component structure
-Backend event handling
-Project structuring and GitHub usage
+Backend event handling with Node.js
 
-_**Conclusion**__
+Version control using Git and GitHub
 
-This project successfully demonstrates the implementation of a real-time collaborative note-sharing application using WebSockets. It fulfills the core requirement of enabling live multi-user collaboration and serves as a strong foundation for building more advanced collaborative tools in the future.
+🏁 Internship Details
 
-The project is functionally complete for its current scope and can be enhanced further with persistence, authentication, and advanced collaboration features.
+Internship Provider: CODTECH IT SOLUTIONS
+
+Task: Task-02 – Collaborative Note-Sharing Application
+
+Domain: Web Development / Real-Time Applications
+
+📜 License
+
+This project is developed for educational and internship purposes.
+You are free to modify and enhance it for learning and personal use.
